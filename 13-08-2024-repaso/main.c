@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "pila.h"
+#include "alumno.h"
+#include "pilaAlumnos.h"
 
 #define DIM 10
 
@@ -19,33 +22,51 @@ int main()
     int alfa = 20;
     int beta = 50;
 
+
+    stAlumno aux;
+
+    aux = cargaUnAlumno();
+
+    muestraUnAlumno(aux);
+
+    PilaAlumnos p;
+    inicPilaAlumnos(&p);
+
+    apilarPilaAlumnos(&p,aux);
+
+    muestraUnAlumno(topePilaAlumnos(&p));
+
+    printf("Si llegue aca es porque funciona\n");
+
+
+
     //printf("Antes Alfa : %d - Beta: %d \n",alfa, beta);
 
     // intercambio(&alfa,&beta);
 
     // printf("Despues Alfa : %d - Beta: %d",alfa, beta);
 
-
-    char arreglo [DIM] = {'a','b','c', 'd', 'e', 'f'};
-    int validos = 6;
-
-    invertirArreglo(arreglo,validos);
-
-    for(int i = 0; i<validos; i++)
-    {
-        printf("%c | ", arreglo[i]);
-    }
-
-    int enteros[DIM] = {10,21,32,23,14,5};
-    int v = 6;
-
-    int posMayor = buscaPosicionMayorElemento(enteros,v);
-
-    printf("\n El mayor elemento es: %d , y la posicion es %d \n", enteros[posMayor], posMayor);
-
-    int flag = esCapicua("neuquen");
-
-    printf("es capicua ( 0 no - 1 si) : %d\n", flag);
+//
+//    char arreglo [DIM] = {'a','b','c', 'd', 'e', 'f'};
+//    int validos = 6;
+//
+//    invertirArreglo(arreglo,validos);
+//
+//    for(int i = 0; i<validos; i++)
+//    {
+//        printf("%c | ", arreglo[i]);
+//    }
+//
+//    int enteros[DIM] = {10,21,32,23,14,5};
+//    int v = 6;
+//
+//    int posMayor = buscaPosicionMayorElemento(enteros,v);
+//
+//    printf("\n El mayor elemento es: %d , y la posicion es %d \n", enteros[posMayor], posMayor);
+//
+//    int flag = esCapicua("neuqueno");
+//
+//    printf("es capicua ( 0 no - 1 si) : %d\n", flag);
 
 
 
@@ -116,9 +137,9 @@ int esCapicua(char palabra[])
     int posFin = cantCaracteres - 1;
     int flag = 1;
 
-   // printf("La cantidad de caracteres es %d de la palabra %s \n",cantCaracteres, palabra);
+   printf("La cantidad de caracteres es %d de la palabra %s \n",cantCaracteres, palabra);
 
-    while(posInic <= posFin && flag)
+    while(posInic <= posFin && flag==1) // flag
     {
         if(palabra[posInic] == palabra[posFin])
         {
@@ -149,8 +170,9 @@ void intercambio(int * a, int * b)
     *b = aux;
 }
 
-/// 8. Intercarlar dos arreglos ordenados de menor a mayor en uno nuevo recibo por parámetro.
-void intercalarArreglos(int a[],int vA, int b[], int vB, int c[])
+/// 8. Intercarlar dos arreglos ordenados de menor a mayor en uno nuevo
+/// recibo por parámetro.
+int intercalarArreglos(int a[],int vA, int b[], int vB, int c[])
 {
 
     int iA = 0;
