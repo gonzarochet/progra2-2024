@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "alumno.h"
 #include "nodoSimple.h"
+#include "pilaAlumnos.h"
 
 #define AR_ARCHIVO "alumnos.dat"
 
@@ -10,18 +11,38 @@ nodoSimple *  archivoToLista(char nombreArchivo[], nodoSimple * lista);
 
 int main()
 {
-    nodoSimple * lista = inicLista();
+//    nodoSimple * lista = inicLista();
+//
+//    //cargarAlumnosArchivo(AR_ARCHIVO);
+//
+//    lista = archivoToLista(AR_ARCHIVO,lista);
+//
+//    muestraLista(lista);
 
-    //cargarAlumnosArchivo(AR_ARCHIVO);
+//    lista = invertirElementosListaRecursivo(lista);
+//
+//    printf("\n Lista Despues: \n");
+//    muestraLista(lista);
 
-    lista = archivoToLista(AR_ARCHIVO,lista);
 
-    muestraLista(lista);
+    Pila pilita;
 
-    lista = invertirElementosListaRecursivo2(lista);
+    inicPilaAlumno(&pilita);
+    apilarPilaAlumno(&pilita,cargaUnAlumno());
+    //apilarPilaAlumno(&pilita,cargaUnAlumno());
+    apilarPilaAlumno(&pilita,cargaUnAlumno());
 
-    printf("\n Lista Despues: \n");
-    muestraLista(lista);
+    printf("Mostrar desde la Pila \n");
+    mostrarPilaAlumnos(&pilita);
+
+    printf("Tope pila: \n");
+    muestraUnAlumno(topePilaAlumno(&pilita));
+
+
+
+
+
+
 
 
 

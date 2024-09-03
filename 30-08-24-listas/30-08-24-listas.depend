@@ -25,3 +25,37 @@
 	<stdlib.h>
 	<conio.h>
 
+1725398152 source:c:\dev\progra2-2024\30-08-24-listas\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1725398152 c:\dev\progra2-2024\30-08-24-listas\alumno.h
+
+1725401671 source:c:\dev\progra2-2024\30-08-24-listas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+	"nodoSimple.h"
+	"pilaAlumnos.h"
+
+1725398152 c:\dev\progra2-2024\30-08-24-listas\nodosimple.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"string.h"
+	"alumno.h"
+
+1725398152 source:c:\dev\progra2-2024\30-08-24-listas\nododoble.c
+
+1725401529 source:c:\dev\progra2-2024\30-08-24-listas\nodosimple.c
+	"nodoSimple.h"
+
+1725400187 c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.h
+	"alumno.h"
+	"nodoSimple.h"
+
+1725402092 source:c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.c
+	"pilaAlumnos.h"
+

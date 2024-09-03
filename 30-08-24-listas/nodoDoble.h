@@ -2,6 +2,15 @@
 #define NODODOBLE_H_INCLUDED
 
 
+typedef struct{
+
+    stAlumno dato;
+    struct nodoDoble * sig;
+    struct nodoDoble * ante;
+
+}nodoDoble;
+
+
 /// 1. Inicializa la lista.
 /// 2. Crear Nodo Doble.
 /// 3. Agregar Nodo al Principio de una lista.

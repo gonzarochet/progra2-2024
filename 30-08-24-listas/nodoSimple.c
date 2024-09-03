@@ -57,6 +57,27 @@ nodoSimple* buscarUltimo(nodoSimple* lista)
     return seg;
 }
 
+nodoSimple * borrarUltimoNodo(nodoSimple * lista)
+{
+
+    if(lista)
+    {
+        nodoSimple* seg = lista;
+        nodoSimple * ante = NULL;
+
+        while(seg->sig)
+        {
+            ante = seg;
+            seg = seg->sig;
+        }
+
+        ante->sig = NULL;
+        free(seg);
+    }
+
+    return lista;
+}
+
 nodoSimple* agregarAlFinal(nodoSimple* lista, nodoSimple* nuevo)
 {
     if(!lista)
@@ -187,7 +208,9 @@ nodoSimple * invertirElementosListaRecursivo(nodoSimple * lista)
         nodoSimple * aux = lista->sig;
         aux->sig = lista;
         lista->sig = NULL;
-    }else{
+    }
+    else
+    {
         principioNuevo = lista;
     }
     return principioNuevo;
@@ -205,7 +228,9 @@ nodoSimple * invertirElementosListaRecursivo2(nodoSimple * lista)
         principioNuevo->sig = lista;
         lista->sig = NULL;
 
-    }else{
+    }
+    else
+    {
         principioNuevo = lista;
     }
     return principioNuevo;
