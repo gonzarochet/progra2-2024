@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1725384935 source:c:\develop\utn\progra2-2024\30-08-24-listas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+	"nodoSimple.h"
+
+1725373448 c:\develop\utn\progra2-2024\30-08-24-listas\alumno.h
+
+1725375752 c:\develop\utn\progra2-2024\30-08-24-listas\nodosimple.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"string.h"
+	"alumno.h"
+
+1725370105 source:c:\develop\utn\progra2-2024\30-08-24-listas\nododoble.c
+
+1725377038 source:c:\develop\utn\progra2-2024\30-08-24-listas\nodosimple.c
+	"nodoSimple.h"
+
+1725374371 source:c:\develop\utn\progra2-2024\30-08-24-listas\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
