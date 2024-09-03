@@ -1,9 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define AR_ARCHIVO "numeros.dat"
+
 int main()
 {
-    printf("Hello world!\n");
+    int arreglo[10];
+    cargaRandomArregloEnteros(arreglo);
+    arrayToArchi(arreglo,10, AR_ARCHIVO);
+    showArchi(AR_ARCHIVO);
+
+    testArchi2(AR_ARCHIVO);
+
+    printf("\n");
+    showArchi(AR_ARCHIVO);
+
+
     return 0;
 }
 
@@ -118,7 +130,7 @@ int sumaElementosArregloRecursivo(int a[], int v, int i)
         rta = a[i] + sumaElementosArregloRecursivo(a,v,i+1);
     }
 
-    return suma;
+    return rta;
 
 }
 
@@ -136,7 +148,7 @@ int sumaElementosArregloRecursivoExplicita(int a[], int v, int i)
         rta = a[i] + sumaElementosArregloRecursivoExplicita(a,v,i+1);
     }
 
-    return suma;
+    return rta;
 
 }
 
@@ -154,17 +166,17 @@ int sumaElementosArregloRecursivoCondicion(int a[], int v, int i, int cond)
     {
         if(a[i] > cond)
         {
-            rta = a[i] + sumaElementosArregloRecursivoCondicion(a,v,i+1);
+            rta = a[i] + sumaElementosArregloRecursivoCondicion(a,v,i+1,cond);
         }
         else
         {
 
-            rta = 0 + sumaElementosArregloRecursivoCondicion(a,v,i+1);
+            rta = 0 + sumaElementosArregloRecursivoCondicion(a,v,i+1,cond);
         }
 
     }
 
-    return suma;
+    return rta;
 
 }
 
@@ -240,7 +252,7 @@ int menorEnArchivo (FILE * arch)
 
 /// 9. Invertir los elementos de un archivo de n�meros enteros de forma recursiva.
 
-void invertirElementosArchivoRecursivo(FILE * buffer, int posInicio, int posFinal)
+void invertirElementosArchivoRecursivo(FILE * buffer, FILE * buffer2, int posInicio, int posFinal)
 {
 
     if(posInicio < posFinal)
@@ -249,20 +261,20 @@ void invertirElementosArchivoRecursivo(FILE * buffer, int posInicio, int posFina
 
         // Mover el puntero al inicio y final respectivamente
         fseek(buffer,posInicio * sizeof(int), SEEK_SET);
-        fseek(buffer,posFinal * sizeof(int), SEEK_SET);
+        fseek(buffer2,posFinal * sizeof(int), SEEK_SET);
 
         // Leer los valores en esas posiciones
         fread(&valueInit, sizeof(int), 1, buffer);
-        fread(&valueEnd, sizeof(int), 1, buffer);
+        fread(&valueEnd, sizeof(int), 1, buffer2);
 
         // Volver a las posiciones para escribir los valores invertidos
         fseek(buffer, posInicio * sizeof(int), SEEK_SET);
         fwrite(&valueEnd, sizeof(int), 1, buffer);
-        fseek(buffer, posFinal * sizeof(int), SEEK_SET);
-        fwrite(&valueInit, sizeof(int), 1, buffer);
+        fseek(buffer2, posFinal * sizeof(int), SEEK_SET);
+        fwrite(&valueInit, sizeof(int), 1, buffer2);
 
         // Llamada recursiva
-        invertirElementosArchivoRecursivo(buffer, posInicio + 1, posFinal - 1);
+        invertirElementosArchivoRecursivo(buffer, buffer2, posInicio + 1, posFinal - 1);
 
     }
 
@@ -275,7 +287,7 @@ void testArchi2(char nameFile[])
     FILE * buffer = fopen(nameFile,"rb+");
     FILE * buffer2 = fopen(nameFile,"rb+");
 
-    invertirElementosArchivoRecursivo(buffer,0,6);
+    invertirElementosArchivoRecursivo(buffer,buffer2,0,cantElementosArchivo(nameFile, sizeof(int)) -1 );
 
     fclose(buffer);
     fclose(buffer2);
@@ -285,6 +297,23 @@ void testArchi2(char nameFile[])
 
 
 /// EXTRA
+
+
+int cantElementosArchivo(char nombreArchivo[], int tamanioEstructura){
+
+    FILE * buffer = fopen(nombreArchivo,"rb");
+    int cant = 0;
+
+    if(buffer){
+        fseek(buffer,0, SEEK_END);
+        cant = ftell(buffer) / tamanioEstructura;
+        fclose(buffer);
+    }
+
+    return cant;
+
+
+}
 
 void arrayToArchi(int array[], int v, char nombreArchivo[])
 {
@@ -315,6 +344,17 @@ void showArchi(char nombreArchivo[])
         }
         fclose(buffer);
     }
+
+}
+
+
+int cargaRandomArregloEnteros(int a[])
+{
+    for(int i = 0; i < 10; i++){
+        a[i] = rand() % 10 + 1;
+    }
+
+    return 10;
 
 }
 
