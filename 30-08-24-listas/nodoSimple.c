@@ -217,6 +217,55 @@ nodoSimple * invertirElementosListaRecursivo(nodoSimple * lista)
 }
 
 
+
+
+nodoSimple * borrarNodoDni(nodoSimple * lista, char dniBuscar[])
+{
+
+    nodoSimple * aux =  NULL;
+    nodoSimple * ante = NULL;
+    nodoSimple * seg = NULL;
+
+    int flag = 0;
+
+
+    if(lista)
+    {
+        if(strcmp(lista->dato.dni,dniBuscar) == 0)
+        {
+            aux = lista;
+            lista = lista->sig;
+            free(aux);
+        }
+        else
+        {
+            ante = lista;
+            seg = lista->sig;
+
+            while(seg && flag == 0)
+            {
+                if(strcmp(seg->dato.dni,dniBuscar) == 0)
+                {
+                    ante->sig = seg->sig;
+                    free(seg);
+                    flag = 1;
+                }
+                else
+                {
+                    ante = seg;
+                    seg = seg->sig;
+                }
+
+            }
+        }
+
+    }
+
+    return lista;
+
+}
+
+
 /// ¿porque no funciona?...
 nodoSimple * invertirElementosListaRecursivo2(nodoSimple * lista)
 {
@@ -235,6 +284,11 @@ nodoSimple * invertirElementosListaRecursivo2(nodoSimple * lista)
     }
     return principioNuevo;
 }
+
+
+
+
+
 
 
 

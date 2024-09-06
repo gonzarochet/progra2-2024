@@ -3,40 +3,66 @@
 #include "alumno.h"
 #include "nodoSimple.h"
 #include "pilaAlumnos.h"
+#include "nodoDoble.h"
+#include "filaAlumnos.h"
 
 #define AR_ARCHIVO "alumnos.dat"
 
 void cargarAlumnosArchivo(char nombreArchivo[]);
 nodoSimple *  archivoToLista(char nombreArchivo[], nodoSimple * lista);
+nodoDoble * listaSimpleADoble(nodoSimple * origen, nodoDoble * destino);
 
 int main()
 {
 //    nodoSimple * lista = inicLista();
+//    nodoDoble * listaDoble = inicListaDoble();
 //
 //    //cargarAlumnosArchivo(AR_ARCHIVO);
 //
 //    lista = archivoToLista(AR_ARCHIVO,lista);
 //
-//    muestraLista(lista);
-
-//    lista = invertirElementosListaRecursivo(lista);
+//    listaDoble = listaSimpleADoble(lista, listaDoble);
 //
-//    printf("\n Lista Despues: \n");
-//    muestraLista(lista);
+//    printf("\n Lista Doble: \n");
+//    muestraListaDoble(listaDoble);
+//
+//
+//    system("pause");
+//
+//    //muestraLista(lista);
+//
+//    listaDoble = borrarNodoDniDoble(listaDoble,"27458662");
+//
+//    printf("\n Lista Doble despues: \n");
+//    muestraListaDoble(listaDoble);
 
 
-    Pila pilita;
 
-    inicPilaAlumno(&pilita);
-    apilarPilaAlumno(&pilita,cargaUnAlumno());
-    //apilarPilaAlumno(&pilita,cargaUnAlumno());
-    apilarPilaAlumno(&pilita,cargaUnAlumno());
+//
+//    Pila pilita;
+//
+//    inicPilaAlumno(&pilita);
+//    apilarPilaAlumno(&pilita,cargaUnAlumno());
+//    //apilarPilaAlumno(&pilita,cargaUnAlumno());
+//    apilarPilaAlumno(&pilita,cargaUnAlumno());
+//
+//    printf("Mostrar desde la Pila \n");
+//    mostrarPilaAlumnos(&pilita);
+//
+//    printf("Tope pila: \n");
+//    muestraUnAlumno(topePilaAlumno(&pilita));
 
-    printf("Mostrar desde la Pila \n");
-    mostrarPilaAlumnos(&pilita);
 
-    printf("Tope pila: \n");
-    muestraUnAlumno(topePilaAlumno(&pilita));
+    Fila filita;
+
+    inicFila(&filita);
+
+
+    agregarFila(&filita, cargaUnAlumno());
+    agregarFila(&filita, cargaUnAlumno());
+
+
+    muestraFila(&filita);
 
 
 
@@ -94,14 +120,17 @@ void cargarAlumnosArchivo(char nombreArchivo[])
 
 
 
-nodoSimple *  archivoToLista(char nombreArchivo[], nodoSimple * lista){
+nodoSimple *  archivoToLista(char nombreArchivo[], nodoSimple * lista)
+{
 
     FILE * buffer = fopen(nombreArchivo, "rb");
     stAlumno aux;
 
 
-    if(buffer){
-        while(fread(&aux, sizeof(stAlumno), 1, buffer) > 0){
+    if(buffer)
+    {
+        while(fread(&aux, sizeof(stAlumno), 1, buffer) > 0)
+        {
             lista = agregarEnOrdenDNI(lista,crearNodo(aux));
         }
         fclose(buffer);
@@ -110,3 +139,21 @@ nodoSimple *  archivoToLista(char nombreArchivo[], nodoSimple * lista){
     return lista;
 
 }
+
+nodoDoble * listaSimpleADoble(nodoSimple * origen, nodoDoble * destino)
+{
+    nodoSimple * aux = origen;
+
+    while(aux)
+    {
+        destino = agregarAlFinalDoble(destino, crearNodoDoble(aux->dato));
+        aux = aux->sig;
+    }
+
+    return destino;
+
+}
+
+
+
+
