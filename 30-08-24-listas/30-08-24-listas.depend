@@ -29,15 +29,15 @@
 	<stdlib.h>
 	<conio.h>
 
-1725658912 source:c:\dev\progra2-2024\30-08-24-listas\alumno.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\alumno.c
 	"alumno.h"
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 
-1725658912 c:\dev\progra2-2024\30-08-24-listas\alumno.h
+1726002131 c:\dev\progra2-2024\30-08-24-listas\alumno.h
 
-1725665150 source:c:\dev\progra2-2024\30-08-24-listas\main.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\main.c
 	<stdio.h>
 	<stdlib.h>
 	"alumno.h"
@@ -46,38 +46,38 @@
 	"nodoDoble.h"
 	"filaAlumnos.h"
 
-1725658912 c:\dev\progra2-2024\30-08-24-listas\nodosimple.h
+1726002131 c:\dev\progra2-2024\30-08-24-listas\nodosimple.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	"string.h"
 	"alumno.h"
 
-1725665189 source:c:\dev\progra2-2024\30-08-24-listas\nododoble.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\nododoble.c
 	"nodoDoble.h"
 
-1725659406 source:c:\dev\progra2-2024\30-08-24-listas\nodosimple.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\nodosimple.c
 	"nodoSimple.h"
 
-1725658912 c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.h
+1726002131 c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.h
 	"alumno.h"
 	"nodoSimple.h"
 
-1725658912 source:c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\pilaalumnos.c
 	"pilaAlumnos.h"
 
-1725665204 c:\dev\progra2-2024\30-08-24-listas\nododoble.h
+1726002131 c:\dev\progra2-2024\30-08-24-listas\nododoble.h
 	<stdio.h>
 	<stdlib.h>
 	"alumno.h"
 
-1725665165 c:\dev\progra2-2024\30-08-24-listas\filaalumnos.h
+1726002131 c:\dev\progra2-2024\30-08-24-listas\filaalumnos.h
 	<stdio.h>
 	<stdlib.h>
 	"alumno.h"
 	"nodoDoble.h"
 
-1725664821 source:c:\dev\progra2-2024\30-08-24-listas\filaalumnos.c
+1726002131 source:c:\dev\progra2-2024\30-08-24-listas\filaalumnos.c
 	"filaAlumnos.h"
 
 1725646209 c:\develop\utn\progra2-2024\30-08-24-listas\pilaalumnos.h

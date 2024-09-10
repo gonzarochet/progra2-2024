@@ -197,28 +197,6 @@ nodoSimple* invertirElementosLista(nodoSimple* lista)
 
 }
 
-/// 5. Invertir los elementos de una lista redireccionando solamente los punteros de forma recursiva.
-nodoSimple * invertirElementosListaRecursivo(nodoSimple * lista)
-{
-    nodoSimple * principioNuevo = NULL;
-
-    if(lista->sig)
-    {
-        principioNuevo = invertirElementosListaRecursivo(lista->sig);
-        nodoSimple * aux = lista->sig;
-        aux->sig = lista;
-        lista->sig = NULL;
-    }
-    else
-    {
-        principioNuevo = lista;
-    }
-    return principioNuevo;
-}
-
-
-
-
 nodoSimple * borrarNodoDni(nodoSimple * lista, char dniBuscar[])
 {
 
