@@ -1,9 +1,12 @@
 # depslib dependency file v1.0
-1725384935 source:c:\develop\utn\progra2-2024\30-08-24-listas\main.c
+1725995417 source:c:\develop\utn\progra2-2024\30-08-24-listas\main.c
 	<stdio.h>
 	<stdlib.h>
 	"alumno.h"
 	"nodoSimple.h"
+	"pilaAlumnos.h"
+	"nodoDoble.h"
+	"filaAlumnos.h"
 
 1725373448 c:\develop\utn\progra2-2024\30-08-24-listas\alumno.h
 
@@ -14,9 +17,10 @@
 	"string.h"
 	"alumno.h"
 
-1725370105 source:c:\develop\utn\progra2-2024\30-08-24-listas\nododoble.c
+1725995417 source:c:\develop\utn\progra2-2024\30-08-24-listas\nododoble.c
+	"nodoDoble.h"
 
-1725377038 source:c:\develop\utn\progra2-2024\30-08-24-listas\nodosimple.c
+1725995418 source:c:\develop\utn\progra2-2024\30-08-24-listas\nodosimple.c
 	"nodoSimple.h"
 
 1725374371 source:c:\develop\utn\progra2-2024\30-08-24-listas\alumno.c
@@ -75,4 +79,25 @@
 
 1725664821 source:c:\dev\progra2-2024\30-08-24-listas\filaalumnos.c
 	"filaAlumnos.h"
+
+1725646209 c:\develop\utn\progra2-2024\30-08-24-listas\pilaalumnos.h
+	"alumno.h"
+	"nodoSimple.h"
+
+1725995418 c:\develop\utn\progra2-2024\30-08-24-listas\nododoble.h
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+
+1725995417 c:\develop\utn\progra2-2024\30-08-24-listas\filaalumnos.h
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+	"nodoDoble.h"
+
+1725995417 source:c:\develop\utn\progra2-2024\30-08-24-listas\filaalumnos.c
+	"filaAlumnos.h"
+
+1725646209 source:c:\develop\utn\progra2-2024\30-08-24-listas\pilaalumnos.c
+	"pilaAlumnos.h"
 
