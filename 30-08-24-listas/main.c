@@ -14,6 +14,9 @@ nodoDoble * listaSimpleADoble(nodoSimple * origen, nodoDoble * destino);
 
 int main()
 {
+
+    srand(time(NULL));
+
 //    nodoSimple * lista = inicLista();
 //    nodoDoble * listaDoble = inicListaDoble();
 //
@@ -58,20 +61,11 @@ int main()
     inicFila(&filita);
 
 
-    agregarFila(&filita, cargaUnAlumno());
-    agregarFila(&filita, cargaUnAlumno());
+    agregarFila(&filita, cargaRandomAlumno());
+    agregarFila(&filita, cargaRandomAlumno());
 
 
     muestraFila(&filita);
-
-
-
-
-
-
-
-
-
 
 
 
@@ -80,7 +74,6 @@ int main()
 
 void cargarAlumnosArchivo(char nombreArchivo[])
 {
-
 
     FILE * buffer = fopen(nombreArchivo,"ab");
     stAlumno aux;
