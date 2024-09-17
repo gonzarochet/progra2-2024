@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1726610114 source:c:\dev\progra2-2024\practicaprimerparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+
