@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1728420779 source:c:\dev\progra2-2024\4-10-24-arboles\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1728420779 c:\dev\progra2-2024\4-10-24-arboles\alumno.h
+
+1728422840 source:c:\dev\progra2-2024\4-10-24-arboles\nodosimple.c
+	"nodoSimple.h"
+
+1728422469 c:\dev\progra2-2024\4-10-24-arboles\nodosimple.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"string.h"
+	"alumno.h"
+
+1728425472 source:c:\dev\progra2-2024\4-10-24-arboles\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	"alumno.h"
+	"arbolAlumno.h"
+	"nodoSimple.h"
+
+1728423845 c:\dev\progra2-2024\4-10-24-arboles\arbolalumno.h
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+
+1728425495 source:c:\dev\progra2-2024\4-10-24-arboles\arbolalumno.c
+	"arbolAlumno.h"
+
