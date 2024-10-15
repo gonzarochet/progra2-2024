@@ -225,6 +225,78 @@ int esHoja(nodoArbol * nodo)
 
 
 
+/// 9. Borrar Nodo Arbol
+nodoArbol * eliminarNodo (nodoArbol * arbol, char dato[])
+{
+    if(arbol)
+    {
+        if(atoi(dato) == atoi(arbol->dato.dni)
+        {
+            if(arbol->izq)
+            {
+                nodoArbol * masDerecho = nodoMasDerecho(arbol->izq);
+                arbol->dato = masDerecho->dato;
+                arbol->izq = eliminarNodo(arbol->izq, masDerecho->dato);
+            }
+            else
+            {
+                if(arbol->der)
+                {
+                    nodoArbol * masIzquierdo = nodoMasIzquierdo(arbol->der);
+                    arbol->dato = masIzquierdo->dato;
+                    arbol->der = eliminarNodo(arbol->der, masIzquierdo->dato);
+                }
+                else
+                {
+                    if(esHoja(arbol)==1)
+                    {
+                        free(arbol);
+                        arbol = NULL;
+                    }
+                }
+            }
+        }
+
+        else if (dato > arbol->dato)
+        {
+            arbol->der = eliminarNodo(arbol->der,dato);
+        }
+        else if (dato < arbol->dato)
+        {
+            arbol->izq = eliminarNodo(arbol->izq,dato);
+        }
+    }
+
+    return arbol;
+}
+
+
+nodoArbol *  nodoMasDerecho(nodoArbol * nodo)
+{
+    if(nodo)
+    {
+        if(nodo->der)
+        {
+            nodo = nodoMasDerecho(nodo->der);
+        }
+    }
+    return nodo;
+}
+
+
+nodoArbol * nodoMasIzquierdo(nodoArbol * nodo)
+{
+    if(nodo)
+    {
+        if(nodo->izq)
+        {
+            nodo = nodoMasIzquierdo(nodo->izq);
+        }
+    }
+    return nodo;
+
+}
+
 
 
 
