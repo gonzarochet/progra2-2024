@@ -5,6 +5,7 @@
 
 stAlumno cargaUnAlumno()
 {
+
     stAlumno aux;
 
     printf("Ingrese un nombre \n");
@@ -56,28 +57,28 @@ int randomRango(int min, int max)
 void setApellidoRandom(char apellido[])
 {
 
-    char arreglosApellido[][29] = {"Rojas", "Alvarez",
-                                   "Pintos", "Gomez", "Garcia", "Romero", "Martinez"
-                                   ,"Garcia", "López", "Perez", "González", "Rodriguez", "Fernandez", "Sanchez", "Ramirez", "Mendoza", "Vasquez", "Morales", "Ortega",
-                                   "Castro", "Guerrero", "Castillo", "Rivas", "Campos", "Jaramillo", "Jimenez", "Cordoba", "Salazar", "Torres", "Reyes", "Hernandez", "Diaz", "Vega",
-                                   "Zapata", "Alvarez", "Ramos", "Pineda", "Montero", "Márquez", "Herrera", "Serrano", "Suarez", "Bermudez",
-                                   "Angulo", "Gomez", "Linares", "Ospina", "Arrieta", "Castaño", "Valencia", "Gaitan",
-                                   "Gomez", "Peralta", "Tellez", "Bernal"
+    char arreglosApellido[][30] = {"Rojas", "Alvarez",
+                                   "Pintos", "Gomez", "Garcia", "Romero", "Martínez"
+                                   ,"García", "López", "Pérez", "González", "Rodríguez", "Fernández", "Sánchez", "Ramírez", "Mendoza", "Vásquez", "Morales", "Ortega",
+                                   "Castro", "Guerrero", "Castillo", "Rivas", "Campos", "Jaramillo", "Jiménez", "Córdoba", "Salazar", "Torres", "Reyes", "Hernández", "Díaz", "Vega",
+                                   "Zapata", "Álvarez", "Ramos", "Pineda", "Montero", "Márquez", "Herrera", "Serrano", "Suárez", "Bermúdez",
+                                   "Ángulo", "Gómez", "Linares", "Ospina", "Arrieta", "Castaño", "Valencia", "Gaitán",
+                                   "Gómez", "Peralta", "Téllez", "Bernal", "Naranjo"
                                   };
 
-    strcpy(apellido,arreglosApellido[randomRango(0,sizeof(arreglosApellido)/29)]);
+    strcpy(apellido,arreglosApellido[randomRango(0,sizeof(arreglosApellido)/30)]);
 }
 
 
 void setNombreRandom(char nombre[])
 {
-    char arregloNombres[][29] = {"Alejandro", "Bruno", "Carlos", "Daniel",
+    char arregloNombres[][30] = {"Alejandro", "Bruno", "Carlos", "Daniel",
                                  "Eduardo", "Fernando", "Gabriel", "Hugo", "Ignacio", "Javier", "Alicia",
                                  "Beatriz", "Carla", "Diana", "Elena", "Fernanda", "Gabriela", "Helena",
-                                 "Isabel",
+                                 "Isabel", "Julieta"
                                 };
 
-    strcpy(nombre, arregloNombres[randomRango(0,sizeof(arregloNombres)/29)]);
+    strcpy(nombre, arregloNombres[randomRango(0,sizeof(arregloNombres)/30)]);
 }
 
 void setDni(char dni[])
@@ -105,10 +106,6 @@ stAlumno cargaRandomAlumno()
     strcat(alumno.nombre, " ");
     setApellidoRandom(apellidoAux);
     strcat(alumno.nombre, apellidoAux);
-
-    printf("%s", alumno.nombre);
-
-    system("pause");
 
     setDni(alumno.dni);
     alumno.genero = getGenero();
