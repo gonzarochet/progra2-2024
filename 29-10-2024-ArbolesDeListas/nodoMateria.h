@@ -4,24 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "nodoAlumno.h"
-
-
-
-typedef struct
-{
-    int idMateria;
-    char nombreMateria[50];
-} stMateria;
+#include "materia.h"
+#include "nodoArbol.h"
 
 
 typedef struct{
-
     stMateria materia;
     struct nodoMateria * sig;
-    nodoAlumno * lista;
+    nodoArbol * arbol;
 }nodoMateria;
-
 
 nodoMateria * inicListaMateria();
 nodoMateria * crearNodoMateria(stMateria mat);

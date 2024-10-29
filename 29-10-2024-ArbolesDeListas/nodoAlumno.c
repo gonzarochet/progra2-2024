@@ -1,21 +1,22 @@
 #include "nodoAlumno.h"
 
-nodoAlumno * inicListaAlumno()
+nodoMateria * inicListaMateria()
 {
     return NULL;
 }
 
-nodoAlumno * crearNodoAlumno(stAlumno alumno)
+nodoMateria * crearNodoMateria(stMateria materia)
 {
-    nodoAlumno * nuevo = (nodoAlumno * )malloc(sizeof(nodoAlumno));
-    nuevo->alumno = alumno;
+    nodoMateria * nuevo = (nodoMateria *)malloc(sizeof(nodoMateria));
+    nuevo->materia = materia;
     nuevo->sig = NULL;
+    nuevo->arbol = inicArbol();
     return nuevo;
 }
 
-nodoAlumno* buscarUltimo(nodoAlumno* lista)
+nodoMateria* buscarUltimo(nodoMateria* lista)
 {
-    nodoAlumno * seg = lista;
+    nodoMateria * seg = lista;
     while(seg->sig != NULL)
     {
         seg = seg->sig;
@@ -23,7 +24,7 @@ nodoAlumno* buscarUltimo(nodoAlumno* lista)
     return seg;
 }
 
-nodoAlumno* agregarAlFinalAlumno(nodoAlumno* lista, nodoAlumno* nuevo)
+nodoMateria* agregarAlFinalAlumno(nodoMateria* lista, nodoMateria* nuevo)
 {
     if(!lista)
     {
@@ -31,7 +32,7 @@ nodoAlumno* agregarAlFinalAlumno(nodoAlumno* lista, nodoAlumno* nuevo)
     }
     else
     {
-        nodoAlumno* ultimo = buscarUltimo(lista);
+        nodoMateria* ultimo = buscarUltimo(lista);
         ultimo->sig = nuevo;
     }
 
@@ -53,18 +54,18 @@ void muestraUnAlumno(stAlumno a)
 
 
 
-void mostrarListaAlumnos(nodoAlumno * lista){
+void mostrarListaAlumnos(nodoMateria * lista){
 
      while(lista)
     {
-        muestraNodoAlumno(lista);
+        muestranodoMateria(lista);
         lista = lista->sig;
     }
 
 
 }
 
-void muestraNodoAlumno(nodoAlumno * nodo)
+void muestranodoMateria(nodoMateria * nodo)
 {
     printf("\n Nodo: %p", nodo);
     muestraUnAlumno(nodo->alumno);

@@ -10,7 +10,7 @@ nodoMateria * crearNodoMateria(stMateria mat)
     nodoMateria * nuevo = (nodoMateria*)malloc(sizeof(nodoMateria));
     nuevo->materia = mat;
     nuevo->sig = NULL;
-    nuevo->lista = inicListaAlumno();
+    nuevo->arbol = inicArbol();
     return nuevo;
 }
 
@@ -60,16 +60,6 @@ nodoMateria* agregarAlFinalMateria(nodoMateria* lista, nodoMateria* nuevo)
 
     return lista;
 }
-
-
-
-void muestraUnaMateria(stMateria m){
-    printf("\n INFO MATERIA-----------------------\n");
-    printf("Id Materia....................%d\n",m.idMateria);
-    printf("Nombre Materia: ..............%s\n",m.nombreMateria);
-    printf("\n-----------------------\n");
-}
-
 
 
 void mostrarListaMateria(nodoMateria * lista){

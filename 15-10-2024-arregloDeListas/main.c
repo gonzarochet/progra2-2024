@@ -29,13 +29,15 @@ int main()
     stCelda ADL[10];
     int vAdl = 0;
 
-    //cargarArchivoRegistro("registro.dat");
-    //mostrarArchivo("registro.dat");
+    cargarArchivoRegistro("registro.dat");
+    mostrarArchivo("registro.dat");
 
     vAdl = archivoToADL("registro.dat",ADL,vAdl);
     printf("la cantidad de datos del archivo al adl es %d", vAdl);
 
     mostrarAdl(ADL, vAdl);
+
+    system("pause");
 
     adlToArchivo(ADL, vAdl);
 
@@ -148,10 +150,10 @@ int archivoToADL(char nombreArchivo[], stCelda adl[], int v)
     {
         while(fread(&aux, sizeof(stRegistroAlumMateria),1,archi)>0)
         {
-            mostrarRegistro(aux);
             stAlumno alumno = refactorizacionAlumno(aux);
             stMateria materia = refactorizacionMateria(aux);
             v = alta(adl,v,materia,alumno);
+
         }
 
         fclose(archi);
@@ -268,19 +270,7 @@ void adlToArchivo(stCelda adl[], int v)
     {
         char nombreArchivo[40] = "" ;
         generaNombreArchivo(adl[i].materia.nombreMateria, nombreArchivo);
-
-        printf("%s", nombreArchivo);
-        system("pause");
-
-        FILE * archi = fopen(nombreArchivo, "a+b");
-
-        if(archi)
-        {
-            fwrite(&adl[i].materia, sizeof(stMateria), 1, archi);
-            fclose(archi);
-        }
-
-        guardarAlumnosEnArchivo("alumnos.dat", adl[i].listaAlumnos);
+        guardarAlumnosEnArchivo(nombreArchivo, adl[i].listaAlumnos);
     }
 
 }
@@ -306,5 +296,5 @@ void guardarAlumnosEnArchivo(char nombreArchivo[], nodoSimple * listaAlumnos)
 void generaNombreArchivo(char nombreMateria[], char nombreArchivo[])
 {
     strcat(nombreMateria, ".dat");
-    strcat(nombreArchivo, nombreMateria);
+    strcpy(nombreArchivo, nombreMateria);
 }

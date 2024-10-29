@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "nodoAlumno.h"
+#include "materia.h"
+#include "alumno.h"
+#include "nodoArbol.h"
 #include "nodoMateria.h"
 
 
@@ -16,44 +18,44 @@ typedef struct
     char nombreMateria[50];
 } stRegistroAlumMateria;
 
-
+nodoMateria * alta(nodoMateria * lda, stMateria materia, stAlumno alumno);
+nodoMateria *  archivoToLDA(char nombreArchivo[], nodoMateria * lda);
 
 stAlumno refactorizacionAlumno(stRegistroAlumMateria reg);
 stMateria refactorizacionMateria(stRegistroAlumMateria reg);
-nodoMateria *  archivoToLDL(char nombreArchivo[], nodoMateria * ldl);
 
 
 int main()
 {
 
-    nodoMateria * ldl = inicListaMateria();
+    nodoMateria * lda = inicListaMateria();
 
-    ldl = archivoToLDL("registro.dat", ldl);
+    lda = archivoToLDA("registro.dat",lda);
 
-    mostrarLDL(ldl);
+    mostrarLDA(lda);
 
     return 0;
 }
 
 
+nodoMateria * alta(nodoMateria * lda, stMateria materia, stAlumno alumno){
 
-nodoMateria * alta(nodoMateria * ldl, stMateria materia, stAlumno alumno){
-
-    nodoMateria * matABuscar = buscaMateriaPorId(ldl, materia.idMateria);
+    nodoMateria * matABuscar = buscaMateriaPorId(lda, materia.idMateria);
 
     if(!matABuscar){
 
         matABuscar = crearNodoMateria(materia);
-        ldl = agregarAlFinalMateria(ldl,matABuscar);
+        lda = agregarAlFinalMateria(lda,matABuscar);
     }
 
-    matABuscar->lista = agregarAlFinalAlumno(matABuscar->lista, crearNodoAlumno(alumno));
+    matABuscar->arbol = insertarEnArbol(matABuscar->arbol, crearNodoAlumnoArbol(alumno));
 
-    return ldl;
+    return lda;
 
- }
+}
 
-nodoMateria *  archivoToLDL(char nombreArchivo[], nodoMateria * ldl)
+
+nodoMateria *  archivoToLDA(char nombreArchivo[], nodoMateria * lda)
 {
 
     FILE * archi = fopen(nombreArchivo, "rb");
@@ -65,25 +67,25 @@ nodoMateria *  archivoToLDL(char nombreArchivo[], nodoMateria * ldl)
         {
             stAlumno alumno = refactorizacionAlumno(aux);
             stMateria materia = refactorizacionMateria(aux);
-            ldl = alta(ldl,materia,alumno);
+            lda = alta(lda,materia,alumno);
 
         }
 
         fclose(archi);
     }
 
-    return ldl;
+    return lda;
 
 }
 
 
-void mostrarLDL(nodoMateria * ldl)
+void mostrarLDA(nodoMateria * lda)
 {
-   while(ldl){
-        muestraUnaMateria(ldl->materia);
+   while(lda){
+        muestraUnaMateria(lda->materia);
         printf("\n LISTA ALUMNOS \n");
-        mostrarListaAlumnos(ldl->lista);
-        ldl = ldl->sig;
+        mostrarArbolAlumnos(lda->arbol);
+        lda = lda->sig;
    }
 
 

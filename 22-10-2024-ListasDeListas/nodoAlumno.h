@@ -2,6 +2,9 @@
 #define NODOALUMNO_H_INCLUDED
 
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct {
       char nombre[60];
       char genero;
@@ -18,6 +21,7 @@ typedef struct{
 
 nodoAlumno * inicListaAlumno();
 nodoAlumno * crearNodoAlumno(stAlumno alumno);
+void mostrarListaAlumnos(nodoAlumno * lista);
 
 
 

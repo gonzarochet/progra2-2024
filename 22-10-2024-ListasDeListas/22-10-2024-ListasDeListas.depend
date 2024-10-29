@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1730239551 source:c:\dev\progra2-2024\22-10-2024-listasdelistas\nodoalumno.c
+	"nodoAlumno.h"
+
+1730239431 c:\dev\progra2-2024\22-10-2024-listasdelistas\nodoalumno.h
+	<stdio.h>
+	<stdlib.h>
+
+1730239567 source:c:\dev\progra2-2024\22-10-2024-listasdelistas\nodomateria.c
+	"nodoMateria.h"
+
+1730239467 c:\dev\progra2-2024\22-10-2024-listasdelistas\nodomateria.h
+	<stdio.h>
+	<stdlib.h>
+	"nodoAlumno.h"
+

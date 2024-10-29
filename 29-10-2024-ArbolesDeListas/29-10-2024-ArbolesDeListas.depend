@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1730235864 source:c:\dev\progra2-2024\29-10-2024-arbolesdelistas\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1730235864 c:\dev\progra2-2024\29-10-2024-arbolesdelistas\alumno.h
+
+1730235864 source:c:\dev\progra2-2024\29-10-2024-arbolesdelistas\materia.c
+	"materia.h"
+
+1730235864 c:\dev\progra2-2024\29-10-2024-arbolesdelistas\materia.h
+
+1730242843 source:c:\dev\progra2-2024\29-10-2024-arbolesdelistas\nodoarbol.c
+	"nodoArbol.h"
+
+1730242847 c:\dev\progra2-2024\29-10-2024-arbolesdelistas\nodoarbol.h
+	<stdio.h>
+	<stdlib.h>
+	"alumno.h"
+
+1730242823 source:c:\dev\progra2-2024\29-10-2024-arbolesdelistas\nodomateria.c
+	"nodoMateria.h"
+
+1730241914 c:\dev\progra2-2024\29-10-2024-arbolesdelistas\nodomateria.h
+	<stdio.h>
+	<stdlib.h>
+	"materia.h"
+	"nodoArbol.h"
+
+1730242788 source:c:\dev\progra2-2024\29-10-2024-arbolesdelistas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"materia.h"
+	"alumno.h"
+	"nodoArbol.h"
+	"nodoMateria.h"
+
