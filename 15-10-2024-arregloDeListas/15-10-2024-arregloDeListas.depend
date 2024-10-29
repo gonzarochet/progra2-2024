@@ -29,3 +29,33 @@
 	"alumno.h"
 	"nodoSimple.h"
 
+1730240891 source:c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1730240380 c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\alumno.h
+
+1730240380 source:c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"materia.h"
+	"alumno.h"
+	"nodoSimple.h"
+
+1730240380 c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\materia.h
+
+1730240380 c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\nodosimple.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"string.h"
+	"alumno.h"
+
+1730240380 source:c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\materia.c
+	"materia.h"
+
+1730240380 source:c:\dev\utn\progra2-2024\15-10-2024-arreglodelistas\nodosimple.c
+	"nodoSimple.h"
+

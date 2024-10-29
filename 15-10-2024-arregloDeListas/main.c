@@ -30,16 +30,14 @@ int main()
     int vAdl = 0;
 
     //cargarArchivoRegistro("registro.dat");
-
     //mostrarArchivo("registro.dat");
 
-
-
-
     vAdl = archivoToADL("registro.dat",ADL,vAdl);
-   printf("la cantidad de datos del archivo al adl es %d", vAdl);
+    printf("la cantidad de datos del archivo al adl es %d", vAdl);
 
     mostrarAdl(ADL, vAdl);
+
+    adlToArchivo(ADL, vAdl);
 
 
     return 0;
@@ -118,8 +116,8 @@ stAlumno refactorizacionAlumno(stRegistroAlumMateria reg)
 
     stAlumno aux;
 
-    strcmp(aux.dni, reg.dni);
-    strcmp(aux.nombre, reg.nombre);
+    strcpy(aux.dni, reg.dni);
+    strcpy(aux.nombre, reg.nombre);
     aux.genero = reg.genero;
     aux.edad = reg.edad;
     aux.nota = reg.nota;
@@ -133,7 +131,7 @@ stMateria refactorizacionMateria(stRegistroAlumMateria reg)
 
     stMateria aux;
 
-    strcmp(aux.nombreMateria, reg.nombreMateria);
+    strcpy(aux.nombreMateria, reg.nombreMateria);
     aux.idMateria = reg.idMateria;
 
     return aux;
@@ -213,6 +211,7 @@ stRegistroAlumMateria crearRegistro()
 
     aux.genero = alumnoAux.genero;
     aux.nota = alumnoAux.nota;
+    aux.edad = alumnoAux.edad;
 
     strcpy(aux.nombreMateria,materiaAux.nombreMateria);
     aux.idMateria = materiaAux.idMateria;
@@ -232,8 +231,8 @@ void cargarArchivoRegistro(char nombreArchivo[])
         for(int i = 0; i < 50; i++)
         {
             stRegistroAlumMateria aux = crearRegistro();
-            //if(!existeDni(archi,aux.dni))
-            fwrite(&aux,sizeof(stRegistroAlumMateria),1,archi);
+            if(!existeDni(archi,aux.dni))
+                fwrite(&aux,sizeof(stRegistroAlumMateria),1,archi);
         }
         fclose(archi);
 
@@ -243,18 +242,69 @@ void cargarArchivoRegistro(char nombreArchivo[])
 
 
 
-void mostrarArchivo(char nombreArchivo[]){
+void mostrarArchivo(char nombreArchivo[])
+{
 
     FILE * archi = fopen(nombreArchivo, "rb");
 
     stRegistroAlumMateria aux;
 
-    if(archi){
-        while(fread(&aux,sizeof(stRegistroAlumMateria),1,archi)){
+    if(archi)
+    {
+        while(fread(&aux,sizeof(stRegistroAlumMateria),1,archi))
+        {
             mostrarRegistro(aux);
         }
         fclose(archi);
     }
 
 
+}
+
+
+void adlToArchivo(stCelda adl[], int v)
+{
+    for(int i = 0; i < v; i++)
+    {
+        char nombreArchivo[40] = "" ;
+        generaNombreArchivo(adl[i].materia.nombreMateria, nombreArchivo);
+
+        printf("%s", nombreArchivo);
+        system("pause");
+
+        FILE * archi = fopen(nombreArchivo, "a+b");
+
+        if(archi)
+        {
+            fwrite(&adl[i].materia, sizeof(stMateria), 1, archi);
+            fclose(archi);
+        }
+
+        guardarAlumnosEnArchivo("alumnos.dat", adl[i].listaAlumnos);
+    }
+
+}
+
+
+void guardarAlumnosEnArchivo(char nombreArchivo[], nodoSimple * listaAlumnos)
+{
+    FILE * archi = fopen(nombreArchivo, "a+b");
+
+    nodoSimple * aux = listaAlumnos;
+
+    if(archi)
+    {
+        while(aux)
+        {
+            fwrite(&aux, sizeof(stAlumno),1,archi);
+            aux = aux->sig;
+        }
+        fclose(archi);
+    }
+}
+
+void generaNombreArchivo(char nombreMateria[], char nombreArchivo[])
+{
+    strcat(nombreMateria, ".dat");
+    strcat(nombreArchivo, nombreMateria);
 }

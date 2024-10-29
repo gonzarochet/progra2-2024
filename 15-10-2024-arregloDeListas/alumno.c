@@ -58,7 +58,7 @@ void setApellidoRandom(char apellido[])
 
     char arreglosApellido[][29] = {"Rojas", "Alvarez",
                                    "Pintos", "Gomez", "Garcia", "Romero", "Martinez"
-                                   ,"Garcia", "López", "Perez", "González", "Rodriguez", "Fernandez", "Sanchez", "Ramirez", "Mendoza", "Vasquez", "Morales", "Ortega",
+                                   ,"Garcia", "Lopez", "Perez", "Gonzalez", "Rodriguez", "Fernandez", "Sanchez", "Ramirez", "Mendoza", "Vasquez", "Morales", "Ortega",
                                    "Castro", "Guerrero", "Castillo", "Rivas", "Campos", "Jaramillo", "Jimenez", "Cordoba", "Salazar", "Torres", "Reyes", "Hernandez", "Diaz", "Vega",
                                    "Zapata", "Alvarez", "Ramos", "Pineda", "Montero", "Márquez", "Herrera", "Serrano", "Suarez", "Bermudez",
                                    "Angulo", "Gomez", "Linares", "Ospina", "Arrieta", "Castaño", "Valencia", "Gaitan",
@@ -106,13 +106,10 @@ stAlumno cargaRandomAlumno()
     setApellidoRandom(apellidoAux);
     strcat(alumno.nombre, apellidoAux);
 
-    printf("%s", alumno.nombre);
-
-    system("pause");
-
     setDni(alumno.dni);
     alumno.genero = getGenero();
     alumno.nota = randomRango(1,10);
+    alumno.edad = randomRango(18,100);
 
 
     return alumno;
